@@ -29,8 +29,8 @@ function Detail(props) {
                 <Grid item xs={12}>
                     <Typography sx={{ fontWeight: 'bold', fontSize: 20, marginTop: 5 }}>Stats:</Typography>
                     <List className='card-pokemon'>
-                        {props.pokemon.stats.map((stat) => (
-                            <ListItem sx={{ display: 'flex', flexDirection: 'column', width: 'auto' }}>
+                        {props.pokemon.stats.map((stat, index) => (
+                            <ListItem key={index} sx={{ display: 'flex', flexDirection: 'column', width: 'auto' }}>
                                 <Typography sx={{ fontWeight: 'bold' }}>{stat.stat.name}</Typography>
                                 <Typography>{stat.base_stat}</Typography>
                             </ListItem>
@@ -40,8 +40,8 @@ function Detail(props) {
                 <Grid item xs={12}>
                     <List sx={{ display: 'flex', alignItems: 'center' }}>
                     <Typography sx={{ fontWeight: 'bold', fontSize: 20 }}>Types:</Typography>
-                        {props.pokemon.types.map((gen) => (
-                            <ListItem sx={{ width: 'auto' }}>
+                        {props.pokemon.types.map((gen, index) => (
+                            <ListItem key={index} sx={{ width: 'auto' }}>
                                 <Card sx={{ p:3, backgroundColor: colors[gen.type.name]}} >{gen.type.name.toUpperCase()}</Card>
                             </ListItem>
                         ))}
